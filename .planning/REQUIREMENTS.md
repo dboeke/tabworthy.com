@@ -100,38 +100,38 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| TAXO-01 | — | Pending |
-| TAXO-02 | — | Pending |
-| TAXO-03 | — | Pending |
-| TAXO-04 | — | Pending |
-| TAXO-05 | — | Pending |
-| CHAN-01 | — | Pending |
-| CHAN-02 | — | Pending |
-| CHAN-03 | — | Pending |
-| CHAN-04 | — | Pending |
-| CHAN-05 | — | Pending |
-| CHAN-06 | — | Pending |
-| SRCH-01 | — | Pending |
-| SRCH-02 | — | Pending |
-| COMM-01 | — | Pending |
-| COMM-02 | — | Pending |
-| COMM-03 | — | Pending |
-| USER-01 | — | Pending |
-| USER-02 | — | Pending |
-| USER-03 | — | Pending |
-| EDIT-01 | — | Pending |
-| EDIT-02 | — | Pending |
-| EDIT-03 | — | Pending |
-| TECH-01 | — | Pending |
-| TECH-02 | — | Pending |
-| TECH-03 | — | Pending |
-| TECH-04 | — | Pending |
+| TAXO-01 | Phase 1 | Pending |
+| TAXO-02 | Phase 1 | Pending |
+| TAXO-03 | Phase 1 | Pending |
+| TAXO-04 | Phase 1 | Pending |
+| TAXO-05 | Phase 2 | Pending |
+| CHAN-01 | Phase 1 | Pending |
+| CHAN-02 | Phase 1 | Pending |
+| CHAN-03 | Phase 1 | Pending |
+| CHAN-04 | Phase 1 | Pending |
+| CHAN-05 | Phase 1 | Pending |
+| CHAN-06 | Phase 1 | Pending |
+| SRCH-01 | Phase 2 | Pending |
+| SRCH-02 | Phase 2 | Pending |
+| COMM-01 | Phase 3 | Pending |
+| COMM-02 | Phase 3 | Pending |
+| COMM-03 | Phase 3 | Pending |
+| USER-01 | Phase 3 | Pending |
+| USER-02 | Phase 3 | Pending |
+| USER-03 | Phase 3 | Pending |
+| EDIT-01 | Phase 2 | Pending |
+| EDIT-02 | Phase 2 | Pending |
+| EDIT-03 | Phase 3 | Pending |
+| TECH-01 | Phase 1 | Pending |
+| TECH-02 | Phase 1 | Pending |
+| TECH-03 | Phase 1 | Pending |
+| TECH-04 | Phase 1 | Pending |
 
 **Coverage:**
 - v1 requirements: 26 total
-- Mapped to phases: 0
-- Unmapped: 26
+- Mapped to phases: 26
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-05*
-*Last updated: 2026-03-05 after initial definition*
+*Last updated: 2026-03-05 after roadmap creation*
