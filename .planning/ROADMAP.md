@@ -51,15 +51,16 @@ Plans:
 - [ ] 02-02: TBD
 
 ### Phase 3: Accounts & Community
-**Goal**: Users can create accounts, save favorites, nominate channels, and vote on nominations while editors manage the nomination queue
+**Goal**: Users can create accounts, react to channels with statuses, subscribe to categories/tags, nominate channels, and vote on nominations while editors manage the queue
 **Depends on**: Phase 2
-**Requirements**: USER-01, USER-02, USER-03, COMM-01, COMM-02, COMM-03, EDIT-03
+**Requirements**: USER-01, USER-02, USER-03, USER-04, COMM-01, COMM-02, COMM-03, EDIT-03
 **Success Criteria** (what must be TRUE):
-  1. User can create an account, log in, and access a personal dashboard showing their favorites, nominations, and activity
-  2. User can save channels to a personal favorites list and see them on their dashboard
-  3. Authenticated user can nominate a new channel and upvote existing nominations
-  4. All users (including anonymous) can browse nominations on category pages or a dedicated nominations section
-  5. Editor can review, approve, or reject community nominations through a review queue
+  1. User can create an account, log in, and access a personal dashboard showing their marked channels, nominations, and activity
+  2. User can mark channels with status reactions (Love, Like, Curious, Hide) and filter their dashboard by status
+  3. User can subscribe to categories or tags and receive alerts when new channels are added
+  4. Authenticated user can nominate a new channel and upvote existing nominations
+  5. All users (including anonymous) can browse nominations on category pages or a dedicated nominations section
+  6. Editor can review, approve, or reject community nominations through a review queue
 **Plans**: TBD
 
 Plans:

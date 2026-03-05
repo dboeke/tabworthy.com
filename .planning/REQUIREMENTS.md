@@ -38,8 +38,9 @@ Requirements for initial release. Each maps to roadmap phases.
 ### User Accounts
 
 - [ ] **USER-01**: User can create an account and log in
-- [ ] **USER-02**: User can save channels to a personal favorites / "my channels" list
-- [ ] **USER-03**: User can view a dashboard showing their favorites, nominations, and activity
+- [ ] **USER-02**: User can mark channels with status reactions: Love, Like, Curious, or Hide
+- [ ] **USER-03**: User can view a dashboard showing their marked channels (filtered by status), nominations, and activity
+- [ ] **USER-04**: User can subscribe to categories or tags and receive alerts when new channels are added
 
 ### Editorial & Admin
 
@@ -89,7 +90,7 @@ Explicitly excluded. Documented to prevent scope creep.
 | Real-time chat / social features | Creates moderation burden; not core to directory purpose |
 | Automated channel ingestion / scraping | Destroys editorial quality; every channel is intentionally selected |
 | Comments on channel profiles | Low value vs moderation cost for a directory |
-| Notifications / email digests | Premature; validate retention patterns first |
+| General email digests / newsletters | Category subscriptions cover targeted alerts; broad digests are premature |
 | Follower/following social graph | Users come to discover channels, not follow other users |
 | Monetization features | Passion project for v1 |
 | Mobile native app | Web-first; responsive design covers mobile needs |
@@ -119,6 +120,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | USER-01 | Phase 3 | Pending |
 | USER-02 | Phase 3 | Pending |
 | USER-03 | Phase 3 | Pending |
+| USER-04 | Phase 3 | Pending |
 | EDIT-01 | Phase 2 | Pending |
 | EDIT-02 | Phase 2 | Pending |
 | EDIT-03 | Phase 3 | Pending |
@@ -128,10 +130,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TECH-04 | Phase 1 | Pending |
 
 **Coverage:**
-- v1 requirements: 26 total
-- Mapped to phases: 26
+- v1 requirements: 27 total
+- Mapped to phases: 27
 - Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-05*
-*Last updated: 2026-03-05 after roadmap creation*
+*Last updated: 2026-03-05 after adding status reactions and category subscriptions*
