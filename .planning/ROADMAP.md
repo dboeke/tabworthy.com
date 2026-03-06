@@ -28,12 +28,13 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. User can view a channel profile page showing editorial summary, platform badges, best-of content highlights, and related channels
   4. All taxonomy and channel pages have clean shareable URLs, breadcrumb navigation, mobile-responsive layout, and JSON-LD structured data
   5. A creator present on multiple platforms appears as a single entity with cross-platform links
-**Plans**: TBD
+**Plans:** 4 plans
 
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
-- [ ] 01-03: TBD
+- [ ] 01-01-PLAN.md — Project scaffolding, Drizzle schema, seed data
+- [ ] 01-02-PLAN.md — Taxonomy browsing pages (homepage, category, topic) with tag filtering
+- [ ] 01-03-PLAN.md — Channel profile page with editorial content sections
+- [ ] 01-04-PLAN.md — Breadcrumbs, JSON-LD structured data, and visual verification
 
 ### Phase 2: Search & Editorial Tooling
 **Goal**: Users can find channels via search, editors can efficiently manage directory content, and the directory signals freshness
@@ -74,6 +75,6 @@ Phases execute in numeric order: 1 -> 2 -> 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Core Directory | 0/3 | Not started | - |
+| 1. Core Directory | 0/4 | Not started | - |
 | 2. Search & Editorial Tooling | 0/2 | Not started | - |
 | 3. Accounts & Community | 0/2 | Not started | - |
