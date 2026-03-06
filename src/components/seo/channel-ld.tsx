@@ -6,7 +6,7 @@ interface ChannelLdCreator {
   name: string
   channels: Array<{
     id: string
-    platformUrl: string
+    platformUrl: string | null
     platform: {
       displayName: string
     }
@@ -17,7 +17,7 @@ interface ChannelLdProps {
   name: string
   slug: string
   description: string
-  platformUrl: string
+  platformUrl: string | null
   platformName: string
   creator: ChannelLdCreator
   currentChannelId: string
@@ -50,7 +50,7 @@ export function ChannelLd({
         name,
         description,
         url: `${BASE_URL}/channels/${slug}`,
-        sameAs: [platformUrl, ...sameAsUrls],
+        sameAs: [platformUrl, ...sameAsUrls].filter((url): url is string => Boolean(url)),
       }}
     />
   )

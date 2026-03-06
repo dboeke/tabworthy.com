@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
+import type { Metadata } from 'next'
 import {
   getTopicBySlug,
   getChannelsForTopic,
@@ -9,6 +9,9 @@ import {
 } from '@/lib/db/queries'
 import { TagFilterBar } from '@/components/channels/tag-filter-bar'
 import { ChannelCard } from '@/components/channels/channel-card'
+import { BreadcrumbNav } from '@/components/taxonomy/breadcrumb-nav'
+import { BreadcrumbLd } from '@/components/seo/breadcrumb-ld'
+import { CategoryLd } from '@/components/seo/category-ld'
 
 export const revalidate = 3600
 export const dynamicParams = true
@@ -38,6 +41,24 @@ export async function generateStaticParams() {
   }
 }
 
+export async function generateMetadata({
+  params,
+}: TopicPageProps): Promise<Metadata> {
+  const { slug, topic: topicSlug } = await params
+  const topic = await getTopicBySlug(slug, topicSlug)
+
+  if (!topic) {
+    return { title: 'Topic Not Found' }
+  }
+
+  return {
+    title: `${topic.name} - ${topic.category.name}`,
+    description:
+      topic.description ||
+      `Discover the best ${topic.name} channels in ${topic.category.name}, curated by humans.`,
+  }
+}
+
 export default async function TopicPage({
   params,
   searchParams,
@@ -60,24 +81,28 @@ export default async function TopicPage({
     getAllTagsForTopic(topic.id),
   ])
 
+  const breadcrumbItems = [
+    { label: 'Home', href: '/' },
+    { label: topic.category.name, href: `/categories/${slug}` },
+    { label: topic.name },
+  ]
+
   return (
-    <div className="min-h-screen">
+    <>
+      {/* Breadcrumb JSON-LD */}
+      <BreadcrumbLd items={breadcrumbItems} />
+
+      {/* Topic ItemList JSON-LD */}
+      <CategoryLd
+        name={topic.name}
+        description={topic.description}
+        categorySlug={slug}
+        channels={channels.map((ch) => ({ name: ch.name, slug: ch.slug }))}
+      />
+
       <div className="mx-auto max-w-7xl px-4 py-8 sm:py-12">
         {/* Breadcrumb */}
-        <nav className="mb-6 text-sm text-muted-foreground">
-          <Link href="/" className="hover:text-foreground transition-colors">
-            Home
-          </Link>
-          <span className="mx-2">/</span>
-          <Link
-            href={`/categories/${slug}`}
-            className="hover:text-foreground transition-colors"
-          >
-            {topic.category.name}
-          </Link>
-          <span className="mx-2">/</span>
-          <span className="text-foreground">{topic.name}</span>
-        </nav>
+        <BreadcrumbNav items={breadcrumbItems} />
 
         {/* Header */}
         <div className="mb-8">
@@ -114,6 +139,6 @@ export default async function TopicPage({
           </p>
         )}
       </div>
-    </div>
+    </>
   )
 }

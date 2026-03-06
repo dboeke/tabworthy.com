@@ -1,7 +1,10 @@
 import { getCategories } from '@/lib/db/queries'
 import { CategoryCard } from '@/components/taxonomy/category-card'
+import { JsonLd } from '@/components/seo/json-ld'
 
 export const revalidate = 3600
+
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://tabworthy.com'
 
 export default async function Home() {
   let categories: Awaited<ReturnType<typeof getCategories>> = []
@@ -12,7 +15,37 @@ export default async function Home() {
   }
 
   return (
-    <div className="min-h-screen">
+    <>
+      {/* WebSite JSON-LD */}
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: 'Tabworthy',
+          description:
+            'The best channels on the internet, picked by people who actually watch them.',
+          url: BASE_URL,
+        }}
+      />
+
+      {/* ItemList JSON-LD for categories */}
+      {categories.length > 0 && (
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'ItemList',
+            name: 'Browse Categories',
+            numberOfItems: categories.length,
+            itemListElement: categories.map((cat, index) => ({
+              '@type': 'ListItem' as const,
+              position: index + 1,
+              name: cat.name,
+              url: `${BASE_URL}/categories/${cat.slug}`,
+            })),
+          }}
+        />
+      )}
+
       {/* Hero */}
       <section className="border-b bg-muted/30 px-4 py-16 sm:py-20 md:py-24">
         <div className="mx-auto max-w-4xl text-center">
@@ -44,11 +77,6 @@ export default async function Home() {
           ))}
         </div>
       </section>
-
-      {/* Footer tagline */}
-      <footer className="border-t px-4 py-8 text-center text-sm text-muted-foreground">
-        Curated by humans, not algorithms.
-      </footer>
-    </div>
+    </>
   )
 }
