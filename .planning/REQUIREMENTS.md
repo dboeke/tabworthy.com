@@ -22,7 +22,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **CHAN-03**: Channel profiles show editorial "best of" content highlights (3-5 representative pieces)
 - [ ] **CHAN-04**: Channel profiles show editorially curated related channels
 - [ ] **CHAN-05**: Every channel profile includes a human-written "why watch" editorial summary
-- [ ] **CHAN-06**: Creators with presences on multiple platforms are grouped as a single entity with cross-platform links
+- [x] **CHAN-06**: Creators with presences on multiple platforms are grouped as a single entity with cross-platform links
 
 ### Search
 
@@ -53,7 +53,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **TECH-01**: All pages are mobile-responsive
 - [ ] **TECH-02**: Directory pages include JSON-LD structured data for search engine rich results
 - [ ] **TECH-03**: All browsing is public without login requirement
-- [ ] **TECH-04**: Data model is platform-agnostic — supports adding new platforms without schema changes
+- [x] **TECH-04**: Data model is platform-agnostic — supports adding new platforms without schema changes
 
 ## v2 Requirements
 
@@ -111,7 +111,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CHAN-03 | Phase 1 | Pending |
 | CHAN-04 | Phase 1 | Pending |
 | CHAN-05 | Phase 1 | Pending |
-| CHAN-06 | Phase 1 | Pending |
+| CHAN-06 | Phase 1 | Complete |
 | SRCH-01 | Phase 2 | Pending |
 | SRCH-02 | Phase 2 | Pending |
 | COMM-01 | Phase 3 | Pending |
@@ -127,7 +127,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TECH-01 | Phase 1 | Pending |
 | TECH-02 | Phase 1 | Pending |
 | TECH-03 | Phase 1 | Pending |
-| TECH-04 | Phase 1 | Pending |
+| TECH-04 | Phase 1 | Complete |
 
 **Coverage:**
 - v1 requirements: 27 total
