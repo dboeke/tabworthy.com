@@ -17,11 +17,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Channel Profiles
 
-- [ ] **CHAN-01**: User can view a rich channel profile with name, description, and platform links
-- [ ] **CHAN-02**: Channel profiles display platform badges/icons showing where the channel lives
-- [ ] **CHAN-03**: Channel profiles show editorial "best of" content highlights (3-5 representative pieces)
-- [ ] **CHAN-04**: Channel profiles show editorially curated related channels
-- [ ] **CHAN-05**: Every channel profile includes a human-written "why watch" editorial summary
+- [x] **CHAN-01**: User can view a rich channel profile with name, description, and platform links
+- [x] **CHAN-02**: Channel profiles display platform badges/icons showing where the channel lives
+- [x] **CHAN-03**: Channel profiles show editorial "best of" content highlights (3-5 representative pieces)
+- [x] **CHAN-04**: Channel profiles show editorially curated related channels
+- [x] **CHAN-05**: Every channel profile includes a human-written "why watch" editorial summary
 - [x] **CHAN-06**: Creators with presences on multiple platforms are grouped as a single entity with cross-platform links
 
 ### Search
@@ -106,11 +106,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TAXO-03 | Phase 1 | Pending |
 | TAXO-04 | Phase 1 | Pending |
 | TAXO-05 | Phase 2 | Pending |
-| CHAN-01 | Phase 1 | Pending |
-| CHAN-02 | Phase 1 | Pending |
-| CHAN-03 | Phase 1 | Pending |
-| CHAN-04 | Phase 1 | Pending |
-| CHAN-05 | Phase 1 | Pending |
+| CHAN-01 | Phase 1 | Complete |
+| CHAN-02 | Phase 1 | Complete |
+| CHAN-03 | Phase 1 | Complete |
+| CHAN-04 | Phase 1 | Complete |
+| CHAN-05 | Phase 1 | Complete |
 | CHAN-06 | Phase 1 | Complete |
 | SRCH-01 | Phase 2 | Pending |
 | SRCH-02 | Phase 2 | Pending |
