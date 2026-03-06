@@ -1,5 +1,12 @@
 # Phase 1: Core Directory - Research
 
+> **IMPORTANT: OUTDATED DATABASE REFERENCES**
+> This research was conducted before the tech stack decision was finalized. All references to **Supabase** (client libraries, RLS policies, `supabase gen types`, Supabase CLI, `@supabase/ssr`, etc.) are **outdated and should be ignored**.
+>
+> The actual implementation uses **Drizzle ORM + Neon (serverless Postgres)**. See `01-CONTEXT.md` for the locked decision. Plans 01-04 reflect the correct stack.
+>
+> Sections that remain valid: project structure, JSON-LD patterns, Tailwind v4, shadcn/ui, Next.js App Router patterns, data model design, and anti-patterns.
+
 **Researched:** 2026-03-05
 **Domain:** Next.js App Router + Supabase content directory with taxonomy browsing, rich channel profiles, and SEO
 **Confidence:** HIGH
@@ -581,7 +588,7 @@ INSERT INTO topics (category_id, name, slug, description, display_order)
 - [ ] `vitest.config.ts` -- Vitest configuration with path aliases matching tsconfig
 - [ ] `src/__tests__/` directory -- test files for all requirements above
 - [ ] Framework install: `npm install -D vitest @testing-library/react @testing-library/jest-dom jsdom`
-- [ ] `src/__tests__/helpers/supabase-mock.ts` -- mock Supabase client for unit tests
+- [ ] `src/__tests__/helpers/db-mock.ts` -- mock Drizzle client for unit tests
 
 ## Sources
 
