@@ -9,10 +9,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Taxonomy & Browsing
 
-- [ ] **TAXO-01**: User can browse channels organized in a two-level hierarchy (Category > Topic)
-- [ ] **TAXO-02**: User can filter channels within a topic using tags (e.g., beginner-friendly, long-form, weekly uploads)
+- [x] **TAXO-01**: User can browse channels organized in a two-level hierarchy (Category > Topic)
+- [x] **TAXO-02**: User can filter channels within a topic using tags (e.g., beginner-friendly, long-form, weekly uploads)
 - [ ] **TAXO-03**: User sees breadcrumb navigation showing their position in the hierarchy
-- [ ] **TAXO-04**: Every category, topic, and channel page has a clean, shareable URL
+- [x] **TAXO-04**: Every category, topic, and channel page has a clean, shareable URL
 - [ ] **TAXO-05**: User can view a "new this week" feed of recently added channels
 
 ### Channel Profiles
@@ -50,9 +50,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### SEO & Technical
 
-- [ ] **TECH-01**: All pages are mobile-responsive
+- [x] **TECH-01**: All pages are mobile-responsive
 - [ ] **TECH-02**: Directory pages include JSON-LD structured data for search engine rich results
-- [ ] **TECH-03**: All browsing is public without login requirement
+- [x] **TECH-03**: All browsing is public without login requirement
 - [x] **TECH-04**: Data model is platform-agnostic — supports adding new platforms without schema changes
 
 ## v2 Requirements
@@ -101,10 +101,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| TAXO-01 | Phase 1 | Pending |
-| TAXO-02 | Phase 1 | Pending |
+| TAXO-01 | Phase 1 | Complete |
+| TAXO-02 | Phase 1 | Complete |
 | TAXO-03 | Phase 1 | Pending |
-| TAXO-04 | Phase 1 | Pending |
+| TAXO-04 | Phase 1 | Complete |
 | TAXO-05 | Phase 2 | Pending |
 | CHAN-01 | Phase 1 | Complete |
 | CHAN-02 | Phase 1 | Complete |
@@ -124,9 +124,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | EDIT-01 | Phase 2 | Pending |
 | EDIT-02 | Phase 2 | Pending |
 | EDIT-03 | Phase 3 | Pending |
-| TECH-01 | Phase 1 | Pending |
+| TECH-01 | Phase 1 | Complete |
 | TECH-02 | Phase 1 | Pending |
-| TECH-03 | Phase 1 | Pending |
+| TECH-03 | Phase 1 | Complete |
 | TECH-04 | Phase 1 | Complete |
 
 **Coverage:**
