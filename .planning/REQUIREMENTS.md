@@ -11,7 +11,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **TAXO-01**: User can browse channels organized in a two-level hierarchy (Category > Topic)
 - [x] **TAXO-02**: User can filter channels within a topic using tags (e.g., beginner-friendly, long-form, weekly uploads)
-- [ ] **TAXO-03**: User sees breadcrumb navigation showing their position in the hierarchy
+- [x] **TAXO-03**: User sees breadcrumb navigation showing their position in the hierarchy
 - [x] **TAXO-04**: Every category, topic, and channel page has a clean, shareable URL
 - [ ] **TAXO-05**: User can view a "new this week" feed of recently added channels
 
@@ -51,7 +51,7 @@ Requirements for initial release. Each maps to roadmap phases.
 ### SEO & Technical
 
 - [x] **TECH-01**: All pages are mobile-responsive
-- [ ] **TECH-02**: Directory pages include JSON-LD structured data for search engine rich results
+- [x] **TECH-02**: Directory pages include JSON-LD structured data for search engine rich results
 - [x] **TECH-03**: All browsing is public without login requirement
 - [x] **TECH-04**: Data model is platform-agnostic — supports adding new platforms without schema changes
 
@@ -103,7 +103,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 |-------------|-------|--------|
 | TAXO-01 | Phase 1 | Complete |
 | TAXO-02 | Phase 1 | Complete |
-| TAXO-03 | Phase 1 | Pending |
+| TAXO-03 | Phase 1 | Complete |
 | TAXO-04 | Phase 1 | Complete |
 | TAXO-05 | Phase 2 | Pending |
 | CHAN-01 | Phase 1 | Complete |
@@ -125,7 +125,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | EDIT-02 | Phase 2 | Pending |
 | EDIT-03 | Phase 3 | Pending |
 | TECH-01 | Phase 1 | Complete |
-| TECH-02 | Phase 1 | Pending |
+| TECH-02 | Phase 1 | Complete |
 | TECH-03 | Phase 1 | Complete |
 | TECH-04 | Phase 1 | Complete |
 
