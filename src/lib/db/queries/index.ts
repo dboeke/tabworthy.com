@@ -7,3 +7,6 @@ export * from './taxonomy'
 
 // Plan 03: channel profile queries
 export * from './channels'
+
+// Phase 02 Plan 02: admin channel CRUD queries
+export * from './admin'
