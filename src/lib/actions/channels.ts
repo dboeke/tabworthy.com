@@ -13,12 +13,12 @@ import {
   contentHighlights,
   relatedChannels,
 } from '@/lib/db/schema'
-import slugify from 'slugify'
+import { slugify } from '@/lib/utils/slugify'
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
-export function generateSlug(name: string): string {
-  return slugify(name, { lower: true, strict: true })
+function generateSlug(name: string): string {
+  return slugify(name)
 }
 
 function parseJsonField<T>(formData: FormData, key: string): T[] {

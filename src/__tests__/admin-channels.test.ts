@@ -1,4 +1,5 @@
 import { describe, it, expect, vi } from 'vitest'
+import { slugify } from '@/lib/utils/slugify'
 
 // Mock next/cache
 vi.mock('next/cache', () => ({
@@ -10,15 +11,6 @@ vi.mock('next/navigation', () => ({
   redirect: vi.fn(() => {
     throw new Error('NEXT_REDIRECT')
   }),
-}))
-
-// Mock slugify
-vi.mock('slugify', () => ({
-  default: (str: string, opts?: { lower?: boolean; strict?: boolean }) => {
-    let result = str.replace(/[^\w\s-]/g, '').replace(/\s+/g, '-')
-    if (opts?.lower) result = result.toLowerCase()
-    return result
-  },
 }))
 
 // Mock the database module
@@ -54,22 +46,23 @@ vi.mock('@/lib/db/schema', () => ({
 }))
 
 describe('Slug Generation', () => {
-  it('generates a slug from a channel name', async () => {
-    const { generateSlug } = await import('@/lib/actions/channels')
-    expect(generateSlug('My Cool Channel')).toBe('my-cool-channel')
+  it('generates a slug from a channel name', () => {
+    expect(slugify('My Cool Channel')).toBe('my-cool-channel')
   })
 
-  it('lowercases the slug', async () => {
-    const { generateSlug } = await import('@/lib/actions/channels')
-    expect(generateSlug('ALL CAPS')).toBe('all-caps')
+  it('lowercases the slug', () => {
+    expect(slugify('ALL CAPS')).toBe('all-caps')
   })
 
-  it('handles special characters', async () => {
-    const { generateSlug } = await import('@/lib/actions/channels')
-    const slug = generateSlug('Hello World!')
+  it('handles special characters', () => {
+    const slug = slugify('Hello World!')
     expect(slug).not.toContain('!')
     expect(slug).toContain('hello')
     expect(slug).toContain('world')
+  })
+
+  it('trims whitespace', () => {
+    expect(slugify('  spaced out  ')).toBe('spaced-out')
   })
 })
 
@@ -151,9 +144,8 @@ describe('Create Channel Validation', () => {
     await expect(createChannel(formData)).rejects.toThrow('Channel name is required')
   })
 
-  it('auto-generates slug from name when slug is empty', async () => {
-    const { generateSlug } = await import('@/lib/actions/channels')
-    const slug = generateSlug('My New Channel')
+  it('auto-generates slug from name when slug is empty', () => {
+    const slug = slugify('My New Channel')
     expect(slug).toBe('my-new-channel')
   })
 })
