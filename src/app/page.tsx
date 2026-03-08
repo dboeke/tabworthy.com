@@ -1,5 +1,6 @@
 import { getCategories } from '@/lib/db/queries'
-import { CategoryCard } from '@/components/taxonomy/category-card'
+import { getNewestChannels, getEditorsPicks } from '@/lib/db/queries/search'
+import { SearchResults } from '@/components/search/search-results'
 import { JsonLd } from '@/components/seo/json-ld'
 
 export const revalidate = 3600
@@ -8,10 +9,17 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://tabworthy.com'
 
 export default async function Home() {
   let categories: Awaited<ReturnType<typeof getCategories>> = []
+  let newestChannels: Awaited<ReturnType<typeof getNewestChannels>> = []
+  let editorsPicksChannels: Awaited<ReturnType<typeof getEditorsPicks>> = []
+
   try {
-    categories = await getCategories()
+    ;[categories, newestChannels, editorsPicksChannels] = await Promise.all([
+      getCategories(),
+      getNewestChannels(10),
+      getEditorsPicks(10),
+    ])
   } catch {
-    // DB unavailable during build -- render empty grid
+    // DB unavailable during build -- render empty state
   }
 
   return (
@@ -47,7 +55,7 @@ export default async function Home() {
       )}
 
       {/* Hero */}
-      <section className="border-b bg-muted/30 px-4 py-16 sm:py-20 md:py-24">
+      <section className="border-b bg-muted/30 px-4 py-12 sm:py-16 md:py-20">
         <div className="mx-auto max-w-4xl text-center">
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
             The best channels on the internet, picked by people who actually
@@ -60,23 +68,12 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Category Grid */}
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:py-16">
-        <h2 className="mb-8 text-2xl font-semibold tracking-tight">
-          Browse Categories
-        </h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {categories.map((category) => (
-            <CategoryCard
-              key={category.id}
-              name={category.name}
-              slug={category.slug}
-              description={category.description}
-              channelCount={category.channelCount}
-            />
-          ))}
-        </div>
-      </section>
+      {/* Search + Split Panel */}
+      <SearchResults
+        initialCategories={categories}
+        initialNewestChannels={newestChannels}
+        initialEditorsPicksChannels={editorsPicksChannels}
+      />
     </>
   )
 }
