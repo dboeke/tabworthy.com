@@ -9,6 +9,7 @@ import {
   primaryKey,
   unique,
   check,
+  index,
 } from 'drizzle-orm/pg-core'
 import { relations, sql } from 'drizzle-orm'
 
@@ -32,16 +33,25 @@ export const platformsRelations = relations(platforms, ({ many }) => ({
 
 // ─── Categories ──────────────────────────────────────────────────────────────
 
-export const categories = pgTable('categories', {
-  id: uuid('id').primaryKey().defaultRandom(),
-  name: varchar('name', { length: 100 }).notNull(),
-  slug: varchar('slug', { length: 100 }).notNull().unique(),
-  description: text('description'),
-  displayOrder: integer('display_order').notNull().default(0),
-  createdAt: timestamp('created_at', { withTimezone: true })
-    .notNull()
-    .defaultNow(),
-})
+export const categories = pgTable(
+  'categories',
+  {
+    id: uuid('id').primaryKey().defaultRandom(),
+    name: varchar('name', { length: 100 }).notNull(),
+    slug: varchar('slug', { length: 100 }).notNull().unique(),
+    description: text('description'),
+    displayOrder: integer('display_order').notNull().default(0),
+    createdAt: timestamp('created_at', { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+  },
+  (table) => [
+    index('categories_name_trgm_idx').using(
+      'gin',
+      sql`${table.name} gin_trgm_ops`
+    ),
+  ]
+)
 
 export const categoriesRelations = relations(categories, ({ many }) => ({
   topics: many(topics),
@@ -65,7 +75,13 @@ export const topics = pgTable(
       .notNull()
       .defaultNow(),
   },
-  (table) => [unique('topics_category_slug_unique').on(table.categoryId, table.slug)]
+  (table) => [
+    unique('topics_category_slug_unique').on(table.categoryId, table.slug),
+    index('topics_name_trgm_idx').using(
+      'gin',
+      sql`${table.name} gin_trgm_ops`
+    ),
+  ]
 )
 
 export const topicsRelations = relations(topics, ({ one, many }) => ({
@@ -96,27 +112,45 @@ export const creatorsRelations = relations(creators, ({ many }) => ({
 // ─── Channels ────────────────────────────────────────────────────────────────
 // No subscriber_count field — user decision: no subscriber counts
 
-export const channels = pgTable('channels', {
-  id: uuid('id').primaryKey().defaultRandom(),
-  creatorId: uuid('creator_id')
-    .notNull()
-    .references(() => creators.id, { onDelete: 'cascade' }),
-  platformId: uuid('platform_id')
-    .notNull()
-    .references(() => platforms.id, { onDelete: 'restrict' }),
-  name: varchar('name', { length: 200 }).notNull(),
-  slug: varchar('slug', { length: 200 }).notNull().unique(),
-  platformUrl: varchar('platform_url', { length: 500 }),
-  description: text('description'),
-  editorialSummary: text('editorial_summary').notNull(),
-  isPrimary: boolean('is_primary').notNull().default(false),
-  createdAt: timestamp('created_at', { withTimezone: true })
-    .notNull()
-    .defaultNow(),
-  updatedAt: timestamp('updated_at', { withTimezone: true })
-    .notNull()
-    .defaultNow(),
-})
+export const channels = pgTable(
+  'channels',
+  {
+    id: uuid('id').primaryKey().defaultRandom(),
+    creatorId: uuid('creator_id')
+      .notNull()
+      .references(() => creators.id, { onDelete: 'cascade' }),
+    platformId: uuid('platform_id')
+      .notNull()
+      .references(() => platforms.id, { onDelete: 'restrict' }),
+    name: varchar('name', { length: 200 }).notNull(),
+    slug: varchar('slug', { length: 200 }).notNull().unique(),
+    platformUrl: varchar('platform_url', { length: 500 }),
+    description: text('description'),
+    editorialSummary: text('editorial_summary').notNull(),
+    isPrimary: boolean('is_primary').notNull().default(false),
+    isEditorsPick: boolean('is_editors_pick').notNull().default(false),
+    createdAt: timestamp('created_at', { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+    updatedAt: timestamp('updated_at', { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+  },
+  (table) => [
+    index('channels_search_idx').using(
+      'gin',
+      sql`(
+        setweight(to_tsvector('english', coalesce(${table.name}, '')), 'A') ||
+        setweight(to_tsvector('english', coalesce(${table.description}, '')), 'B') ||
+        setweight(to_tsvector('english', coalesce(${table.editorialSummary}, '')), 'C')
+      )`
+    ),
+    index('channels_name_trgm_idx').using(
+      'gin',
+      sql`${table.name} gin_trgm_ops`
+    ),
+  ]
+)
 
 export const channelsRelations = relations(channels, ({ one, many }) => ({
   creator: one(creators, {
@@ -193,12 +227,21 @@ export const channelCategoriesRelations = relations(
 
 // ─── Tags ────────────────────────────────────────────────────────────────────
 
-export const tags = pgTable('tags', {
-  id: uuid('id').primaryKey().defaultRandom(),
-  name: varchar('name', { length: 100 }).notNull().unique(),
-  slug: varchar('slug', { length: 100 }).notNull().unique(),
-  displayName: varchar('display_name', { length: 100 }).notNull(),
-})
+export const tags = pgTable(
+  'tags',
+  {
+    id: uuid('id').primaryKey().defaultRandom(),
+    name: varchar('name', { length: 100 }).notNull().unique(),
+    slug: varchar('slug', { length: 100 }).notNull().unique(),
+    displayName: varchar('display_name', { length: 100 }).notNull(),
+  },
+  (table) => [
+    index('tags_name_trgm_idx').using(
+      'gin',
+      sql`${table.name} gin_trgm_ops`
+    ),
+  ]
+)
 
 export const tagsRelations = relations(tags, ({ many }) => ({
   channelTags: many(channelTags),
