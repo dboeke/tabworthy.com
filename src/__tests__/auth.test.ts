@@ -48,7 +48,7 @@ describe('Login Action', () => {
     const formData = new FormData()
     formData.set('password', 'wrong-password')
 
-    const result = await login(formData)
+    const result = await login(null, formData)
     expect(result).toEqual({ error: 'Invalid password' })
   })
 
@@ -70,7 +70,7 @@ describe('Login Action', () => {
     const formData = new FormData()
     formData.set('password', 'test-password-123')
 
-    await expect(login(formData)).rejects.toThrow('NEXT_REDIRECT')
+    await expect(login(null, formData)).rejects.toThrow('NEXT_REDIRECT')
     expect(mockSession.isLoggedIn).toBe(true)
     expect(mockSave).toHaveBeenCalled()
     expect(redirect).toHaveBeenCalledWith('/admin/channels')
