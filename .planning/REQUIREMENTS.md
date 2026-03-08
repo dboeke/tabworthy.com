@@ -44,8 +44,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Editorial & Admin
 
-- [ ] **EDIT-01**: Editor can create, edit, and archive channel listings
-- [ ] **EDIT-02**: Editor can manage taxonomy (create/edit/reorder categories, topics, and tags)
+- [x] **EDIT-01**: Editor can create, edit, and archive channel listings
+- [x] **EDIT-02**: Editor can manage taxonomy (create/edit/reorder categories, topics, and tags)
 - [ ] **EDIT-03**: Editor can review and approve/reject community nominations via a queue
 
 ### SEO & Technical
@@ -121,8 +121,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | USER-02 | Phase 3 | Pending |
 | USER-03 | Phase 3 | Pending |
 | USER-04 | Phase 3 | Pending |
-| EDIT-01 | Phase 2 | Pending |
-| EDIT-02 | Phase 2 | Pending |
+| EDIT-01 | Phase 2 | Complete |
+| EDIT-02 | Phase 2 | Complete |
 | EDIT-03 | Phase 3 | Pending |
 | TECH-01 | Phase 1 | Complete |
 | TECH-02 | Phase 1 | Complete |
