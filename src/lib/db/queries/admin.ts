@@ -7,6 +7,9 @@ import {
   categories,
   topics,
   tags,
+  channelCategories,
+  channelTopics,
+  channelTags,
 } from '../schema'
 
 /**
@@ -118,4 +121,141 @@ export async function getAdminFormData() {
     tags: allTags,
     channels: allChannels,
   }
+}
+
+// ─── Taxonomy Admin Queries ─────────────────────────────────────────────────
+
+/**
+ * Get all categories ordered by displayOrder, with topic count and channel count.
+ */
+export async function getAdminCategories() {
+  const result = await db.query.categories.findMany({
+    orderBy: (categories, { asc }) => [asc(categories.displayOrder)],
+    with: {
+      topics: true,
+      channelCategories: true,
+    },
+  })
+
+  return result.map((cat) => ({
+    id: cat.id,
+    name: cat.name,
+    slug: cat.slug,
+    description: cat.description,
+    displayOrder: cat.displayOrder,
+    createdAt: cat.createdAt,
+    topicCount: cat.topics.length,
+    channelCount: cat.channelCategories.length,
+  }))
+}
+
+/**
+ * Get a single category by ID with its topics.
+ */
+export async function getAdminCategoryById(id: string) {
+  return db.query.categories.findFirst({
+    where: eq(categories.id, id),
+    with: {
+      topics: {
+        orderBy: (topics, { asc }) => [asc(topics.displayOrder)],
+      },
+    },
+  })
+}
+
+/**
+ * Get all topics grouped by category, with channel count.
+ * Optionally filter by categoryId.
+ */
+export async function getAdminTopics(categoryId?: string) {
+  const allCategories = await db.query.categories.findMany({
+    orderBy: (categories, { asc }) => [asc(categories.displayOrder)],
+    with: {
+      topics: {
+        orderBy: (topics, { asc }) => [asc(topics.displayOrder)],
+        with: {
+          channelTopics: true,
+        },
+      },
+    },
+  })
+
+  const result = allCategories.flatMap((cat) =>
+    cat.topics
+      .filter(() => !categoryId || cat.id === categoryId)
+      .map((topic) => ({
+        id: topic.id,
+        name: topic.name,
+        slug: topic.slug,
+        description: topic.description,
+        displayOrder: topic.displayOrder,
+        categoryId: cat.id,
+        categoryName: cat.name,
+        channelCount: topic.channelTopics.length,
+        createdAt: topic.createdAt,
+      }))
+  )
+
+  return result
+}
+
+/**
+ * Get topics for a specific category (for sortable list).
+ */
+export async function getAdminTopicsByCategory(categoryId: string) {
+  return db.query.topics.findMany({
+    where: eq(topics.categoryId, categoryId),
+    orderBy: (topics, { asc }) => [asc(topics.displayOrder)],
+  })
+}
+
+/**
+ * Get a single topic by ID with its category.
+ */
+export async function getAdminTopicById(id: string) {
+  return db.query.topics.findFirst({
+    where: eq(topics.id, id),
+    with: {
+      category: true,
+    },
+  })
+}
+
+/**
+ * Get all tags with channel usage count.
+ */
+export async function getAdminTags() {
+  const result = await db.query.tags.findMany({
+    orderBy: (tags, { asc }) => [asc(tags.name)],
+    with: {
+      channelTags: true,
+    },
+  })
+
+  return result.map((tag) => ({
+    id: tag.id,
+    name: tag.name,
+    slug: tag.slug,
+    displayName: tag.displayName,
+    channelCount: tag.channelTags.length,
+  }))
+}
+
+/**
+ * Get a single tag by ID.
+ */
+export async function getAdminTagById(id: string) {
+  return db.query.tags.findFirst({
+    where: eq(tags.id, id),
+  })
+}
+
+/**
+ * Get all categories (minimal) for topic form parent selector.
+ */
+export async function getAdminCategoriesForSelect() {
+  return db.query.categories.findMany({
+    columns: { id: true, name: true },
+    orderBy: (categories, { asc }) => [asc(categories.displayOrder)],
+  })
 }
