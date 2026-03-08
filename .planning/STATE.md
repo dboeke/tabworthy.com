@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: in-progress
-stopped_at: Completed 02-01-PLAN.md
-last_updated: "2026-03-08T01:48:52.480Z"
-last_activity: 2026-03-08 -- Completed 02-01 (admin auth and shell)
+stopped_at: Completed 02-04-PLAN.md
+last_updated: "2026-03-08T02:05:00Z"
+last_activity: 2026-03-08 -- Completed 02-04 (search and homepage redesign)
 progress:
   total_phases: 3
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 8
-  completed_plans: 5
+  completed_plans: 8
   percent: 100
 ---
 
@@ -25,12 +25,12 @@ See: .planning/PROJECT.md (updated 2026-03-05)
 
 ## Current Position
 
-Phase: 2 of 3 (Search & Editorial Tooling)
-Plan: 1 of 4 in current phase (02-01 complete)
-Status: Executing Phase 2
-Last activity: 2026-03-08 -- Completed 02-01 (admin auth and shell)
+Phase: 2 of 3 (Search & Editorial Tooling) -- COMPLETE
+Plan: 4 of 4 in current phase (02-04 complete)
+Status: Phase 2 Complete
+Last activity: 2026-03-08 -- Completed 02-04 (search and homepage redesign)
 
-Progress: [██████░░░░] 63%
+Progress: [██████████] 100%
 
 ## Performance Metrics
 
@@ -54,6 +54,7 @@ Progress: [██████░░░░] 63%
 | Phase 01 P02 | 4min | 3 tasks | 11 files |
 | Phase 01 P04 | 5min | 3 tasks | 11 files |
 | Phase 02 P01 | 4min | 2 tasks | 13 files |
+| Phase 02 P03 | 5min | 2 tasks | 17 files |
 
 ## Accumulated Context
 
@@ -77,6 +78,9 @@ Recent decisions affecting current work:
 - [Phase 02]: useActionState for login form (React 19 pattern with prevState + formData)
 - [Phase 02]: CSS overlay approach for admin layout to hide root layout chrome
 - [Phase 02]: iron-session for admin auth with 30-day cookie sessions
+- [Phase 02]: Extracted slugify to shared utility for testability (avoids DB import in tests)
+- [Phase 02]: Separate client components for sortable lists to keep pages as server components
+- [Phase 02]: Topics page grouped by category with per-category sortable lists
 
 ### Pending Todos
 
@@ -89,6 +93,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-08T01:48:02Z
-Stopped at: Completed 02-01-PLAN.md
-Resume file: .planning/phases/02-search-editorial-tooling/02-01-SUMMARY.md
+Last session: 2026-03-08T02:03:34Z
+Stopped at: Completed 02-03-PLAN.md
+Resume file: .planning/phases/02-search-editorial-tooling/02-03-SUMMARY.md
