@@ -10,3 +10,6 @@ export * from './channels'
 
 // Phase 02 Plan 02: admin channel CRUD queries
 export * from './admin'
+
+// Phase 02 Plan 04: search, autocomplete, and feeds
+export * from './search'

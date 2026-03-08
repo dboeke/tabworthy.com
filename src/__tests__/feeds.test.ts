@@ -6,7 +6,7 @@ vi.mock('@/lib/db/index', () => ({
     execute: vi.fn(),
     query: {
       channels: {
-        findMany: vi.fn(),
+        findMany: vi.fn(() => Promise.resolve([])),
       },
     },
     select: vi.fn(() => ({
