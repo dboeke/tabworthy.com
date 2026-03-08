@@ -45,11 +45,13 @@ Plans:
   2. User can view a "new this week" feed showing recently added channels
   3. Editor can create, edit, and archive channel listings through an admin interface
   4. Editor can manage the taxonomy (create, edit, reorder categories, topics, and tags) through an admin interface
-**Plans**: TBD
+**Plans:** 4 plans
 
 Plans:
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
+- [ ] 02-01-PLAN.md — Schema migration (is_editors_pick, search indexes, pg_trgm), admin auth with iron-session, admin layout shell
+- [ ] 02-02-PLAN.md — Admin channel CRUD with inline related entity management and markdown editor
+- [ ] 02-03-PLAN.md — Admin taxonomy CRUD (categories, topics, tags) with drag-and-drop reordering
+- [ ] 02-04-PLAN.md — Search-first homepage redesign with full-text search, autocomplete, Newest/Picks feeds
 
 ### Phase 3: Accounts & Community
 **Goal**: Users can create accounts, react to channels with statuses, subscribe to categories/tags, nominate channels, and vote on nominations while editors manage the queue
@@ -75,6 +77,6 @@ Phases execute in numeric order: 1 -> 2 -> 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Core Directory | 0/4 | Not started | - |
-| 2. Search & Editorial Tooling | 0/2 | Not started | - |
+| 1. Core Directory | 4/4 | Complete | 2026-03-07 |
+| 2. Search & Editorial Tooling | 0/4 | Planning complete | - |
 | 3. Accounts & Community | 0/2 | Not started | - |
