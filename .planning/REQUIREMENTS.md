@@ -13,7 +13,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **TAXO-02**: User can filter channels within a topic using tags (e.g., beginner-friendly, long-form, weekly uploads)
 - [x] **TAXO-03**: User sees breadcrumb navigation showing their position in the hierarchy
 - [x] **TAXO-04**: Every category, topic, and channel page has a clean, shareable URL
-- [ ] **TAXO-05**: User can view a "new this week" feed of recently added channels
+- [x] **TAXO-05**: User can view a "new this week" feed of recently added channels
 
 ### Channel Profiles
 
@@ -26,8 +26,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Search
 
-- [ ] **SRCH-01**: User can search across channels, categories, topics, and tags via full-text search
-- [ ] **SRCH-02**: Search provides autocomplete suggestions as the user types
+- [x] **SRCH-01**: User can search across channels, categories, topics, and tags via full-text search
+- [x] **SRCH-02**: Search provides autocomplete suggestions as the user types
 
 ### Community
 
@@ -105,15 +105,15 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TAXO-02 | Phase 1 | Complete |
 | TAXO-03 | Phase 1 | Complete |
 | TAXO-04 | Phase 1 | Complete |
-| TAXO-05 | Phase 2 | Pending |
+| TAXO-05 | Phase 2 | Complete |
 | CHAN-01 | Phase 1 | Complete |
 | CHAN-02 | Phase 1 | Complete |
 | CHAN-03 | Phase 1 | Complete |
 | CHAN-04 | Phase 1 | Complete |
 | CHAN-05 | Phase 1 | Complete |
 | CHAN-06 | Phase 1 | Complete |
-| SRCH-01 | Phase 2 | Pending |
-| SRCH-02 | Phase 2 | Pending |
+| SRCH-01 | Phase 2 | Complete |
+| SRCH-02 | Phase 2 | Complete |
 | COMM-01 | Phase 3 | Pending |
 | COMM-02 | Phase 3 | Pending |
 | COMM-03 | Phase 3 | Pending |

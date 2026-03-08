@@ -54,7 +54,9 @@ Progress: [██████████] 100%
 | Phase 01 P02 | 4min | 3 tasks | 11 files |
 | Phase 01 P04 | 5min | 3 tasks | 11 files |
 | Phase 02 P01 | 4min | 2 tasks | 13 files |
+| Phase 02 P02 | 6min | 2 tasks | 13 files |
 | Phase 02 P03 | 5min | 2 tasks | 17 files |
+| Phase 02 P04 | 6min | 3 tasks | 10 files |
 
 ## Accumulated Context
 
@@ -81,6 +83,13 @@ Recent decisions affecting current work:
 - [Phase 02]: Extracted slugify to shared utility for testability (avoids DB import in tests)
 - [Phase 02]: Separate client components for sortable lists to keep pages as server components
 - [Phase 02]: Topics page grouped by category with per-category sortable lists
+- [Phase 02]: websearch_to_tsquery for user-facing search (handles phrases and operators safely)
+- [Phase 02]: pg_trgm similarity + ILIKE for taxonomy and autocomplete fuzzy matching
+- [Phase 02]: 300ms debounce on search input for live search
+- [Phase 02]: Server-rendered initial data with client-side search overlay for SEO
+- [Phase 02]: Delete-and-reinsert pattern for junction table updates in channel CRUD
+- [Phase 02]: JSON hidden inputs for complex multi-value form fields in server actions
+- [Phase 02]: Dynamic import for @uiw/react-md-editor to avoid SSR issues
 
 ### Pending Todos
 
@@ -93,6 +102,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-08T02:03:34Z
-Stopped at: Completed 02-03-PLAN.md
-Resume file: .planning/phases/02-search-editorial-tooling/02-03-SUMMARY.md
+Last session: 2026-03-08T02:05:00Z
+Stopped at: Completed 02-04-PLAN.md
+Resume file: .planning/phases/02-search-editorial-tooling/02-04-SUMMARY.md
